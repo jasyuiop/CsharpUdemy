@@ -1,0 +1,27 @@
+﻿@model AspNetCoreMvc2.Introduction.EmployeeListViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index3</title>
+</head>
+<body>
+    @foreach (var item in Model.Employees) // @ işareti ile başlıyorsak razer syntax
+    {
+        // bu şekilde controllerden gönderdiğimiz list'i dönüyoruz
+        @item.FirstName
+        <br />
+    }
+    @foreach (var item in Model.Cities) // @ işareti ile başlıyorsak razer syntax
+    {
+        // bu şekilde controllerden gönderdiğimiz list'i dönüyoruz
+        @item
+        <br />
+    }
+</body>
+</html>

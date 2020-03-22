@@ -1,0 +1,26 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>EmployeeForm</title>
+</head>
+<body>
+    @using (Html.BeginForm("Index10","Home"))
+    {
+        // Submit olduğunda index10'u çalıştıracak, nerde Home'un altında.
+
+        // burada form submit edildiğinde textbox'un içerisindeki değeri
+        // Index10'a gönderiyor, Textbox'un id'si ve name'i key olduğu için
+        // Index10'da key parametresine sahip olduğu için otomatik olarak gerçekleşiyor.
+        <b>Key: </b><br />
+        @Html.TextBox("key")
+        <input type="submit" value="Search" />
+    }
+</body>
+</html>

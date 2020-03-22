@@ -1,0 +1,29 @@
+﻿@model AspNetCoreMvc2.Introduction.EmployeeAddViewModel;
+@{
+    Layout = null;
+}
+<!--taghelperi viewImportsa ekledim
+    View'sin altına viewimport eklersen yazdığın şey bütün viewlarda geçerli olur.
+    kendi yazdığımız taghelperleri de koyabiliriz oraya , bütün viewlerde geçerli olur.-->
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add</title>
+</head>
+<body>
+    <form asp-controller="Employee" asp-action="Add">
+        <!--hangi controllera bakayım, hangi action çalışcak.-->
+        <label asp-for="Employee.Id"></label> <input asp-for="Employee.Id" /><br /> <!--asp-for modeldeki hangi nesne için bu inputu kullanıyoruz.-->
+        <label asp-for="Employee.FirstName"></label> <input asp-for="Employee.FirstName" /><br />
+        <label asp-for="Employee.LastName"></label> <input asp-for="Employee.LastName" /><br />
+        <label asp-for="Employee.CityId"></label> <select asp-for="Employee.CityId" asp-items="Model.Cities"></select>
+        <button type="submit">Add</button>
+    </form>
+
+    <br /><br />
+    <employee-list count="1"></employee-list> <!--custom tag helperimiz.-->
+    <!--tag helperimize count diyerek parametre geçiyoruz-->
+</body>
+</html>
