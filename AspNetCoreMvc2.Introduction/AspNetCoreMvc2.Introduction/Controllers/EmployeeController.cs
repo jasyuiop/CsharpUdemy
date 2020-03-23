@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AspNetCoreMvc2.Introduction.Entities;
+using AspNetCoreMvc2.Introduction.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -10,6 +11,13 @@ namespace AspNetCoreMvc2.Introduction.Controllers
 {
     public class EmployeeController : Controller
     {
+        // Dependency Injection desenini implemente ettim =>
+        private ICalculator _calculator;
+        public EmployeeController(ICalculator calculator)
+        {
+            _calculator = calculator;
+        }
+
         public IActionResult Add()
         {
             var employeeAddViewModel = new EmployeeAddViewModel
@@ -35,6 +43,11 @@ namespace AspNetCoreMvc2.Introduction.Controllers
             // submit butonuna basınca employee'nin içerisine gelen herşey düşüyor
             // artık buradan alıp db'ye insert falan yapabiliriz..
             return View();
+        }
+
+        public string Calculate()
+        {
+            return _calculator.Calculate(100).ToString();
         }
     }
 }

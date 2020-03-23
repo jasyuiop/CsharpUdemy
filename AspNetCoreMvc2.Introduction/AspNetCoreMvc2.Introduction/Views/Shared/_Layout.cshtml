@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <!--Menu ve Footer, layout eklediğim her sayfada sabit, RenderBody olan kısım değişken gelecektir.-->
+    <div>Menu</div>
+    <div>
+        @RenderBody() <!--Burası bizim değişken kısmımızdır.-->
+    </div>
+    <div>Footer</div>
+
+    <!--Sectionumuzu render ediyoruz, ikinci parametre true geliyor, eğer sayfada MySection diye birşey
+        yok ise onu render etme diyoruz.-->
+    <div>@RenderSection("MySection",false)</div>
+</body>
+</html>
